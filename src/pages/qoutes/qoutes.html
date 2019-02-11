@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ qouteGroup.category | uppercase }}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-card *ngFor="let qoute of qouteGroup.quotes; let i = index">
+    <ion-card-header>
+      #{{ i + 1 }}
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ qoute.text }}</p>
+      <p class="author">{{ qoute.person }}</p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col text-right>
+        <button ion-button clear (click)="onAddToFavorite(qoute)" *ngIf="!isFavoriteCkeck(qoute)">Favorite</button>
+        <button ion-button clear color="danger" (click)="onRemoveToFavorite(qoute)" *ngIf="isFavoriteCkeck(qoute)">UnFavorite</button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

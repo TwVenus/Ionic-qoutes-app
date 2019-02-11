@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+        <!-- end : the toolbar will show on the right of page. -->
+        <ion-buttons start [menuToggle]>
+            <button ion-button>
+                <ion-icon name="menu" ></ion-icon>
+              </button>
+        </ion-buttons> 
+    <ion-title>library</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3 text-center>Select your favorite Qoute.</h3>
+  <ion-list>
+    <button ion-item *ngFor="let QouteGroup of qoutesCollection"  [navPush]="qoutesPage" [navParams]="QouteGroup">
+      <ion-icon [name]="QouteGroup.icon" item-left></ion-icon>
+      <h2>{{ QouteGroup.category | uppercase}}</h2>
+      <p>{{ QouteGroup.quotes.length }} Qoutes</p>
+    </button>    
+  </ion-list>
+</ion-content>

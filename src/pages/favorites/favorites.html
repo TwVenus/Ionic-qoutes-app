@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <!-- end : the toolbar will show on the right of page. -->
+    <ion-buttons start menuToggle>
+        <button ion-button>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+    </ion-buttons> 
+    <ion-title>favorites</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <ion-list>
+  <ion-item-sliding *ngFor="let qoute of qoutes">    
+    <!-- if alt is true, add class name on the item -->
+   <ion-item color="qouteBackground" (click)="onViewQoute(qoute)" [ngClass]="{alt:checkAltBackground()}">
+      <h2>{{ qoute.person }}</h2>
+      <p>{{ qoute.text }}</p>
+    </ion-item>
+    <ion-item-options>
+      <button ion-button color="danger" (click)="onRomveFavoriteQoute(qoute)">
+        <ion-icon name="trash"></ion-icon>
+        Delete
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+ </ion-list>
+</ion-content>

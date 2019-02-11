@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+        <!-- end : the toolbar will show on the right of page. -->
+        <ion-buttons start [menuToggle]>
+            <button ion-button>
+                <ion-icon name="menu" ></ion-icon>
+              </button>
+        </ion-buttons> 
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-label>Change background</ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-toggle (ionChange)="onToggle($event)" [checked]="checkAltBackground()"></ion-toggle>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
